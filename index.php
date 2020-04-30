@@ -29,24 +29,32 @@
        }
     }
 
-    class singleton {
+    class Singleton {
+        
         private static $instances = [];
 
         protected function __construct(){}
 
-        public static function getInstance(): Singleton
-        {
+        public static function getInstance(): Singleton {
             $obj = static::class;
+            // print_r(static::class);
             if (!isset(self::$instances[$obj])) {
                 self::$instances[$obj] = new static;
             }
-
             return self::$instances[$obj];
         }
+        public function logic() {
+            echo "<p>very good singleton logic.</p>";
+        }
     }
+    
+    $obj = new child(1,2);
+    print_r($obj->get());
+    $single1 = Singleton::getInstance();
+    $single2 = Singleton::getInstance();
 
-     $obj = new child(1,2);
-     print_r($obj->get());
+    if ($single2 === $single1)
+        $single1->logic();
 
 
 
