@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+    /* height: 120vh; */
+    font-family: 'Titillium Web', sans-serif;
+    /* background-color: #AEAEAE; */
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+h1,p {
+    margin: 0;
+    padding: 0;
+}
+#header {
+    height: 60%;
+    width: 100%;
+}
+.navi {
+    padding: 2vw 4vw;
+    width: -webkit-fill-available;
+    position: absolute;
+    top: 0;
+    left: 0;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navi .logo {
+    font-weight: 900;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.link {
+    transition: 0.2s;
+    margin-left: 1vw;
+    font-weight: 900;
+    font-size: 18px;
+    cursor: pointer;
+}
+.container {
+    display: flex;
+}
+#mainPhoto {
+    width: 36%;
+    height: auto;
+    transition: 0.1s;
+}
+.lagmani {
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(90deg,#F7F4EF,#AEAEAE);
+    width: -webkit-fill-available;
+    padding-left: 40px;
+    transition: 0.2s;
+}
+.lagmani .s1 {
+    transition: 0.1s;
+    font-size: 6vw;
+    font-weight: 800;
+    width: fit-content;
+}
+.lagmani .s2 {
+    transition: 0.1s;
+    width: fit-content;
+    font-size: 2vw;
+    font-style: italic;
+}
+#shop-btn {
+    background-color: black;
+    color: white;
+    border-radius: 10vw;
+    width: min-content;
+    padding: 1vw 5vw;
+    font-size: 2vw;
+    margin-top: 3vw;
+    cursor: pointer;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 80px;
+}
+
+.capture {
+    font-size: 3vw;
+    margin-bottom: 32px;
+}
+.cost {
+    color: #8F8F8F;
+
+    margin-top: 10px;
+}
+.title {
+    margin-top: 20px;
+}
+.boots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.boot {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+}
+
+.seeAll {
+    background-color: black;
+    color: white;
+    border-radius: 10vw;
+    padding: 1vw 3vw;
+    font-size: 2vw;
+    margin-top: 3vw;
+    cursor: pointer;
+    align-self: center;
+    align-self: center;
+}
+
+@media screen and (max-width:700px)
+ {
+     .capture {
+         font-size: 24px;
+         text-align: center;
+     }
+     .boots {
+         flex-direction: column;
+         align-items: center;
+     }
+     .boot {
+         margin-top: 40px;
+     }
+     .seeAll {
+        font-size: 24px;
+        padding: 8px 16px;
+     }
+
+     .contacts {
+         display: flex;
+         flex-direction: column;
+     }
+     .contacts img {
+         margin-bottom: 20px;
+     }
+     .anchors .links {
+         display: flex;
+         flex-direction: column;
+     }
+     .anchors .links span {
+         margin-bottom: 40px;
+     }
+    
+ }
+@media screen and (max-width:500px) {
+
+    footer {
+        margin-top: 50px;
+    }
+    header .container {
+        width: fit-content;
+        flex-direction: column;
+        align-items: center;
+    }
+
+   #mainPhoto {
+        order:2;
+        width: 100%;
+        position: relative;
+        z-index: 0;
+        top: -66px;
+    }
+
+    .lagmani {
+        position: relative;
+        z-index: 2;
+        order: 1;
+        align-items: center;
+        padding: 0;
+        background: linear-gradient(0deg,#F7F4EF,#AEAEAE);
+    }
+    .navi {
+        position: sticky;
+        z-index: 3;
+        background-color: #AEAEAE;
+    }
+    .logo {
+        display: none;
+    }
+    .links {
+        width: -webkit-fill-available;
+        display: flex;
+        justify-content: space-around;
+    }
+    .lagmani .s1 {
+        font-size: 8vw;
+    }
+    .lagmani .s2 {
+        font-size: 4vw;
+    }
+    #shop-btn {
+        font-size: 4vw;
+        
+    }
+    .mainContent {
+        padding: 0;
+    }
+}
+
+footer {
+    background-color: #190000;
+    color: #7C7979;
+    display: flex;
+    justify-content: space-between;
+    padding: 54px 70px;
+}
+footer .logo {
+    color: #ECECEC;
+}
+footer .links {
+    margin-top: 24px;
+}
+footer .links span {
+    font-weight: 700;
+    margin-right: 20px;
+}
+.contacts img {
+    height: 70px;
+    margin-left: 20px;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
