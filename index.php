@@ -79,28 +79,29 @@ if (isset($_POST['login'])) {
     $query = $connection->prepare("SELECT * FROM users WHERE USERNAME=:username");
     $query->bindParam("username", $username, PDO::PARAM_STR);
     $query->execute();
- 
-    $result = $query->fetch(PDO::FETCH_ASSOC);
- 
-    if (!$result) {
+
+    $user = $query->fetchAll();
+
+    if (!$user) {
         echo '<p class="error">Username password combination is wroweng!</p>';
     } else {
-        // if (password_verify($password, $result['password'])) {
-           $id = $_SESSION['user_id'] = $result['id'];
-        //     echo '<p class="success">Congratulations, you are logged in!</p>';
-        // } else {
-        //     echo '<p class="error">Username password combination is wrong!</p>';
-        // }
+        if (password_verify($password, $user[0][2])) {
+            if ( $_GET['page'] == "about")
+            header("Refresh: 0; URL = about.html");
+            else if ( $_GET['page'] == "collection")
+                header("Refresh: 0; URL = collection.html?id=$id");
+            else 
+            header("Refresh: 0; URL = landing.html?id=$id"); 
 
-        $page = $_GET['page'];
-        if ($page == "about")
-        header("Refresh: 0; URL = about.html");
-        else if ($page == "collection")
-            header("Refresh: 0; URL = collection.html?id=$id");
-        else 
-        header("Refresh: 0; URL = landing.html?id=$id"); 
+        } else {
+            echo '<p class="error">Username password combination is wrong!</p>';
+        }
     }
 }
+
+
+
+
  
  
 ?>
