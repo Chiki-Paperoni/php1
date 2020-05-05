@@ -37,7 +37,7 @@
 
         public static function getInstance(): Singleton {
             $obj = static::class;
-            // print_r(static::class);
+
             if (!isset(self::$instances[$obj])) {
                 self::$instances[$obj] = new static;
             }
@@ -85,13 +85,25 @@ if (isset($_POST['login'])) {
     if (!$user) {
         echo '<p class="error">Username password combination is wroweng!</p>';
     } else {
-        if (password_verify($password, $user[0][2])) {
-            if ( $_GET['page'] == "about")
-            header("Refresh: 0; URL = about.html");
-            else if ( $_GET['page'] == "collection")
-                header("Refresh: 0; URL = collection.html?id=$id");
-            else 
-            header("Refresh: 0; URL = landing.html?id=$id"); 
+        if (password_verify($password, $user[0]['password'])) {
+            if ( $_GET['page'] == "about") {
+                unset($_POST['username']);
+                unset($_POST['password']);
+                unset($_GET['page']);
+                header("Refresh: 0; URL = about.html");
+            }    
+            else if ( $_GET['page'] == "collection") {
+                unset($_POST['username']);
+                unset($_POST['password']);
+                unset($_GET['page']);
+                header("Refresh: 0; URL = collection.html");
+            }    
+            else {
+                unset($_POST['username']);
+                unset($_POST['password']);
+                unset($_GET['page']); 
+                header("Refresh: 0; URL = landing.html"); 
+            }
 
         } else {
             echo '<p class="error">Username password combination is wrong!</p>';
